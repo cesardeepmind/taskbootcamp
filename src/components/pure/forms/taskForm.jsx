@@ -62,39 +62,48 @@ const TaskForm = ({ add, length }) => {
         validationSchema={taskSchema}
         onSubmit={addTask}
       >
-        <Form>
-          <label htmlFor="taskname">Task Name</label>
-          <Field
-            id="taskname"
-            name="taskname"
-            placeholder="Task Name"
-            type="text"
-            ref={nameRef}
-          />
-          <label htmlFor="description">Description</label>
-          <Field
-            id="description"
-            name="description"
-            placeholder="Description"
-            type="text"
-            ref={descriptionRef}
-          />
+        {({ values,
+                errors,
+                touched,
+                isSubmitting,
+                handleChange,
+                handleBlur }) => (
+          <Form>
+            <label htmlFor="taskname">Task Name</label>
+            <Field
+              id="taskname"
+              name="taskname"
+              placeholder="Task Name"
+              type="text"
+              ref={nameRef}
+            />
+            {errors && errors.name}
+            <label htmlFor="description">Description</label>
+            <Field
+              id="description"
+              name="description"
+              placeholder="Description"
+              type="text"
+              ref={descriptionRef}
+            />
+             {errors && errors.description}
 
-          <Field
-            id="level"
-            name="level"
-            component="select"
-            ref={levelRef}
-          >
-            <option value={LEVELS.NORMAL} style={normalStyle}>Normal</option>
-            <option value={LEVELS.URGENT} style={urgentStyle}>Urgent</option>
-            <option value={LEVELS.BLOCKING} style={blockingStyle}>Blocking</option>
-          </Field>
+            <Field
+              id="level"
+              name="level"
+              component="select"
+              ref={levelRef}
+            >
+              <option value={LEVELS.NORMAL} style={normalStyle}>Normal</option>
+              <option value={LEVELS.URGENT} style={urgentStyle}>Urgent</option>
+              <option value={LEVELS.BLOCKING} style={blockingStyle}>Blocking</option>
+            </Field>
 
-          <button type='submit'>
-            {length > 0 ? 'Add Task' : 'Create your first Task'}
-          </button>
-        </Form>
+            <button type='submit'>
+              {length > 0 ? 'Add Task' : 'Create your first Task'}
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
     // <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
