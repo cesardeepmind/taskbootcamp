@@ -2,8 +2,8 @@ import React, {useRef} from 'react';
 import PropTypes from 'prop-types'
 import { LEVELS } from '../../../models/levels.enum';
 import { Task } from '../../../models/task.class';
-import { Formik, Field, Form } from 'formik';
-import * as Yup from 'yup';
+// import { Formik, Field, Form } from 'formik';
+// import * as Yup from 'yup';
 
 const TaskForm = ({ add, length }) => {
 
@@ -39,94 +39,94 @@ const TaskForm = ({ add, length }) => {
     fontWeight: 'bold'
   }
 
-  const initialValues = {
-    taskname: '',
-    description: '',
-    level: LEVELS.NORMAL
-  }
+  // const initialValues = {
+  //   taskname: '',
+  //   description: '',
+  //   level: LEVELS.NORMAL
+  // }
 
-  const taskSchema = Yup.object().shape(
-    {
-      taskname: Yup.string().required('Task name Required'),
-      description: Yup.string().required('Description Required'),
-      level: Yup.string().oneOf([LEVELS.NORMAL, LEVELS.URGENT, LEVELS.BLOCKING], 'You must select a Level: Normal/Urgent/Blocking').required('Level Required'),
-    }
-  )
+  // const taskSchema = Yup.object().shape(
+  //   {
+  //     taskname: Yup.string().required('Task name Required'),
+  //     description: Yup.string().required('Description Required'),
+  //     level: Yup.string().oneOf([LEVELS.NORMAL, LEVELS.URGENT, LEVELS.BLOCKING], 'You must select a Level: Normal/Urgent/Blocking').required('Level Required'),
+  //   }
+  // )
 
 
   return (
-    <div>
-      <h4>Task Formik</h4>
-      <Formik
-        initialValues={initialValues}
-        validationSchema={taskSchema}
-        onSubmit={addTask}
-      >
-        {({ values,
-                errors,
-                touched,
-                isSubmitting,
-                handleChange,
-                handleBlur }) => (
-          <Form>
-            <label htmlFor="taskname">Task Name</label>
-            <Field
-              id="taskname"
-              name="taskname"
-              placeholder="Task Name"
-              type="text"
-              ref={nameRef}
-            />
-            {errors && errors.name}
-            <label htmlFor="description">Description</label>
-            <Field
-              id="description"
-              name="description"
-              placeholder="Description"
-              type="text"
-              ref={descriptionRef}
-            />
-             {errors && errors.description}
+    // <div>
+    //   <h4>Task Formik</h4>
+    //   <Formik
+    //     initialValues={initialValues}
+    //     validationSchema={taskSchema}
+    //     onSubmit={addTask}
+    //   >
+    //     {({ values,
+    //             errors,
+    //             touched,
+    //             isSubmitting,
+    //             handleChange,
+    //             handleBlur }) => (
+    //       <Form>
+    //         <label htmlFor="taskname">Task Name</label>
+    //         <Field
+    //           id="taskname"
+    //           name="taskname"
+    //           placeholder="Task Name"
+    //           type="text"
+    //           ref={nameRef}
+    //         />
+    //         {errors && errors.name}
+    //         <label htmlFor="description">Description</label>
+    //         <Field
+    //           id="description"
+    //           name="description"
+    //           placeholder="Description"
+    //           type="text"
+    //           ref={descriptionRef}
+    //         />
+    //          {errors && errors.description}
 
-            <Field
-              id="level"
-              name="level"
-              component="select"
-              ref={levelRef}
-            >
-              <option value={LEVELS.NORMAL} style={normalStyle}>Normal</option>
-              <option value={LEVELS.URGENT} style={urgentStyle}>Urgent</option>
-              <option value={LEVELS.BLOCKING} style={blockingStyle}>Blocking</option>
-            </Field>
+    //         <Field
+    //           id="level"
+    //           name="level"
+    //           component="select"
+    //           ref={levelRef}
+    //         >
+    //           <option value={LEVELS.NORMAL} style={normalStyle}>Normal</option>
+    //           <option value={LEVELS.URGENT} style={urgentStyle}>Urgent</option>
+    //           <option value={LEVELS.BLOCKING} style={blockingStyle}>Blocking</option>
+    //         </Field>
 
-            <button type='submit'>
-              {length > 0 ? 'Add Task' : 'Create your first Task'}
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </div>
-    // <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
-    //   <div className='form-outline flex-fill'>
-    //     <input ref={nameRef} id='inputName' type='text' className='form-control form-control-lg' placeholder='Tasks Name' required autoFocus />
-    //     <input ref={descriptionRef} id='descriptionName' type='text' placeholder='Tasks Description' className='form-control form-control-lg' required />
+    //         <button type='submit'>
+    //           {length > 0 ? 'Add Task' : 'Create your first Task'}
+    //         </button>
+    //       </Form>
+    //     )}
+    //   </Formik>
+    // </div>
+    <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
+      <div className='form-outline flex-fill'>
+        <input ref={nameRef} id='inputName' type='text' className='form-control form-control-lg' placeholder='Tasks Name' required autoFocus />
+        <input ref={descriptionRef} id='descriptionName' type='text' placeholder='Tasks Description' className='form-control form-control-lg' required />
         
-    //     <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel' className='form-control form-control-lg'>
-    //       <option style={normalStyle} value={LEVELS.NORMAL}>
-    //         Normal
-    //       </option>
-    //       <option style={urgentStyle} value={LEVELS.URGENTE}>
-    //         Urgente
-    //       </option>
-    //       <option style={blockingStyle} value={LEVELS.BLOCKING}>
-    //         Blocking
-    //       </option>
-    //     </select>
-    //     <button type='submit' className='btn btn-success btn-lg ms-3'>
-    //       {length > 0 ? 'Add Task' : 'Create your first Task'}
-    //     </button>
-    //   </div>
-    // </form>
+        <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel' className='form-control form-control-lg'>
+          <option style={normalStyle} value={LEVELS.NORMAL}>
+            Normal
+          </option>
+          <option style={urgentStyle} value={LEVELS.URGENTE}>
+            Urgente
+          </option>
+          <option style={blockingStyle} value={LEVELS.BLOCKING}>
+            Blocking
+          </option>
+        </select>
+        <button type='submit' className='btn btn-success btn-lg ms-3'>
+          {length > 0 ? 'Add Task' : 'Create your first Task'}
+        </button>
+      </div>
+    </form>
   )
 }
 

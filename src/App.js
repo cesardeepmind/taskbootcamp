@@ -1,7 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
+import FetchExample from './components/pure/FetchExample';
+// import ObservableExample from './components/pure/ObservableExample';
+// import AsyncExample from './components/pure/AsyncExample';
 // import Father from './components/container/father';
-import TaskListComponent from './components/container/task_list';
+// import TaskListComponent from './components/container/task_list';
+// import Tasklist from './components/TasksList/TasksList';
 // import Ejemplo1 from './hooks/Ejemplo1';
 // import Ejemplo2 from './hooks/Ejemplo2';
 // import { GreetingStyled } from './components/pure/greetingStyled';
@@ -24,8 +28,20 @@ function App() {
         {/* <Ejemplo2 /> */}
         {/* <GreetingStyled name="Cesar" /> */}
       {/* </header> */}
-      <TaskListComponent />
+      {/* <TaskListComponent /> */}
+      {/* <Tasklist /> */}
       {/* <Father /> */}
+
+      {/* Ejemplos async */}
+
+        {/* <AsyncExample /> */}
+
+      {/* Observableexample */}
+      {/* <ObservableExample /> */}
+
+      {/* Fetch example */}
+      <FetchExample />
+
       {/* Ejemplos de renderizados condicional */}
       
         {/* <Optionalrender /> */}
