@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
-import FetchExample from './components/pure/FetchExample';
+import AxiosCRUDExample from './components/pure/AxiosCRUDExample';
+// import AxiosExample from './components/pure/AxiosExample';
+// import FetchExample from './components/pure/FetchExample';
 // import ObservableExample from './components/pure/ObservableExample';
 // import AsyncExample from './components/pure/AsyncExample';
 // import Father from './components/container/father';
@@ -40,7 +42,11 @@ function App() {
       {/* <ObservableExample /> */}
 
       {/* Fetch example */}
-      <FetchExample />
+      {/* <FetchExample /> */}
+
+      {/* AXIOS EXAMPLE */}
+      {/* <AxiosExample /> */}
+      <AxiosCRUDExample />
 
       {/* Ejemplos de renderizados condicional */}
       
